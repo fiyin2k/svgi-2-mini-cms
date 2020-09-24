@@ -18,7 +18,7 @@ export class Profile extends BaseAbstractEntity{
     photo:string//photo
     
     @JoinColumn()
-    @OneToOne(type => User, user => user.profile)
+    @OneToOne(type => User, user => user.profile, {onDelete: 'CASCADE'})
     user: User
 
 }

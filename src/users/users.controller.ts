@@ -1,9 +1,11 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+// import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Get, HttpException, HttpStatus, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
 import { UpdateResult } from 'typeorm/query-builder/result/UpdateResult';
 import { CreateUserDto } from './dto/create/create-user.dto';
 import { UpdateUserDto } from './dto/update/update-user.dto';
 import { User } from './models/user.entity';
 import { UsersService } from './users.service';
+import { FindOneParams } from './validators/params.validator';
 
 @Controller('users')
 export class UsersController {
@@ -40,7 +42,7 @@ export class UsersController {
      * Handle Get request for find by id
      */
     @Get(':id')
-    findOne(@Param('id') id: string): Promise<User> {
+    findOne(@Param('id', ParseIntPipe) id: number): Promise<User> {
         return this.usersService.findOne(id);
     }
 
@@ -51,7 +53,7 @@ export class UsersController {
      * Handle Put request for 
      */
     @Put(':id')
-    partialUpdate(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto): Promise<UpdateResult> {
+    partialUpdate(@Param('id') id: FindOneParams, @Body() updateUserDto: UpdateUserDto): Promise<UpdateResult> {
         return this.usersService.update1(id, updateUserDto);
     }
 
@@ -65,4 +67,6 @@ export class UsersController {
         return this.usersService.update2(user);
     }
 }
+
+
 

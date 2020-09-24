@@ -1,8 +1,17 @@
+import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  await app.listen(3001);
+  
+  app.useGlobalPipes(new ValidationPipe());
+  //In production environment, better to disable detailed error message as shown below:
+  /*
+  app.useGlobalPipes(new ValidationPipe(
+    {disableErrorMessages: true,}
+    ));
+    */
+   await app.listen(3001);
 }
 bootstrap();

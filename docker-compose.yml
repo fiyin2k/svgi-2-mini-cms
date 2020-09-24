@@ -6,7 +6,7 @@ services:
     ports:
     - "5433:5432"
     volumes:
-    - /Users/piusonobhayedo/data/postgres:/data/postgres
+    - /Users/fiyinolatunji/data/postgres:/data/postgres
     env_file:
     - docker.env
     networks:

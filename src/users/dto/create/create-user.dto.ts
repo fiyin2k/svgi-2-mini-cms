@@ -6,7 +6,7 @@ export class CreateUserDto extends CreateBaseAbstractDto{
     @IsNotEmpty()
     readonly firstName: string
     @IsNotEmpty()
-    readonly middelName: string
+    readonly middleName: string
     @IsNotEmpty()
     readonly lastName: string
     @IsNotEmpty()
@@ -19,24 +19,25 @@ export class CreateUserDto extends CreateBaseAbstractDto{
     readonly isActive: boolean
     @IsNotEmpty()
     readonly primaryEmailAddress: string
-    @IsNotEmpty()
-    readonly isPrimaryEmailAddressVerified: boolean
-    @IsNotEmpty()
-    readonly passwordSalt:string
-    @IsNotEmpty()
-    readonly passwordHash:string
-    @IsNotEmpty()
-    readonly isPasswordChangeRequired:boolean
-    @IsNotEmpty()
-    readonly resetPasswordToken:string
-    @IsNotEmpty()
-    readonly resetPasswordExpiration:Date
-    @IsNotEmpty()
-    readonly primaryEmailVerificationToken:string
-    @IsNotEmpty()
-    readonly otpEnabled:boolean
-    @IsNotEmpty()
-    readonly otpSecret: string
+
+    // @IsNotEmpty()
+    // readonly isPrimaryEmailAddressVerified: boolean
+    // @IsNotEmpty()
+    // readonly passwordSalt:string
+    // @IsNotEmpty()
+    // readonly passwordHash:string
+    // @IsNotEmpty()
+    // readonly isPasswordChangeRequired:boolean
+    // @IsNotEmpty()
+    // readonly resetPasswordToken:string
+    // @IsNotEmpty()
+    // readonly resetPasswordExpiration:Date
+    // @IsNotEmpty()
+    // readonly primaryEmailVerificationToken:string
+    // @IsNotEmpty()
+    // readonly otpEnabled:boolean
+    // @IsNotEmpty()
+    // readonly otpSecret: string
     readonly profile: CreateProfileDto
     //readonly roles: CreateRolesDto[]
 }

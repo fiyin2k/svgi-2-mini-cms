@@ -14,7 +14,7 @@ export class Profile extends BaseAbstractEntity{
     @Column()
     stateOfOrigin: string
 
-    @Column()
+    @Column({nullable:true})
     photo:string//photo
     
     @JoinColumn()

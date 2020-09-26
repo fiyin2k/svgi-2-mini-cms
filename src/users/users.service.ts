@@ -57,11 +57,11 @@ export class UsersService{
     /**
      * See https://typeorm.io/#/find-options
      */
-    /*
+    
     async findAll(): Promise<User[]> {
         return await this.userRepository.find();
     }
-    */
+    
     
     //2. Note: You can indicate the fields to be returned
     /*
@@ -73,10 +73,11 @@ export class UsersService{
     /**
      * find all and return only code and name along with profile relation
      */
+    /*
     async findAll(): Promise<User[]> {
         return await this.userRepository.find({select: ["firstName", "lastName"], relations: ["profile"]});
     }
-    
+    */
     //4. Etc. See https://typeorm.io/#/find-options
 
     /**
@@ -93,10 +94,14 @@ export class UsersService{
      * @param id 
      * Finds by a criterion (id in this case) and deletes. Returns void
      */
+    /*
     async delete(id: FindOneParams): Promise<void> {
         await this.userRepository.delete(id);
     }
-
+    */
+   async delete(id: number): Promise<void> {
+    await this.userRepository.delete(id);
+}
     /**
      * 
      * @param user 
@@ -113,10 +118,14 @@ export class UsersService{
      * @param user 
      * Find by the id and replace the fields sent in Dto
      */
+    /*
     async update1(id: FindOneParams, user: UpdateUserDto): Promise<UpdateResult> {
         return await this.userRepository.update(id, { ...user })
     }
-
+    */
+   async update1(id: number, user: UpdateUserDto): Promise<UpdateResult> {
+    return await this.userRepository.update(id, { ...user })
+    }
     /**
      * 
      * @param user 
